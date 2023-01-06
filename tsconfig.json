@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "esnext",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "jsx": "react-jsxdev",
+        "sourceMap": true,
+        "strict": true,
+        "moduleResolution": "node",
+        "baseUrl": "./src",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "paths": {
+            "~/*": ["./*"]
+        },
+        "typeRoots": ["node_modules/@types"],
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "noFallthroughCasesInSwitch": true
+    },
+    "include": [
+        "src/**/*",
+        "tailwind.config.js",
+        "font.ts",
+        "declarations.d.ts"
+    ]
+}
