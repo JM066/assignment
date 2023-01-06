@@ -1,13 +1,14 @@
 import React from 'react'
-import Button from '../../component/Button/Button'
+import useFetchUsers from '../../hook/useFetchUsers'
+import { IUser } from './Home.type'
 
 export default function Home() {
+    const { data } = useFetchUsers<IUser[]>('users')
     return (
         <div>
-            <Button color="secondary" onclick={() => console.log()}>
-                Hi Template!
-            </Button>
-            <div className="flex flex-row"></div>
+            {data?.map((user: IUser) => (
+                <div key={user.id}>{user.name}</div>
+            ))}
         </div>
     )
 }
