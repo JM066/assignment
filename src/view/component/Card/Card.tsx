@@ -1,5 +1,5 @@
 import React from 'react'
-import Typography from '../Typography/Typography'
+
 import { IProps } from './Card.type'
 
 export default function Card(props: React.PropsWithChildren<IProps>) {
@@ -15,34 +15,24 @@ export default function Card(props: React.PropsWithChildren<IProps>) {
                 return ''
         }
     }
-    const handleItemPosition = () => {
+    const handlePosition = () => {
         switch (props.items) {
             case 'center':
                 return 'items-center'
             case 'left':
-                return 'items-left'
+                return 'items-start'
             case 'right':
-                return 'items-right'
+                return 'items-end'
             default:
                 return 'items-center'
         }
     }
-    const handlePadding = () => {
-        return props.padding === true ? 'p-4' : ''
-    }
+
     return (
         <div
-            className={`flex flex-col h-full ${handleRounded} ${handleItemPosition} ${handlePadding} border border-1`}
+            className={`flex flex-col ${handleRounded()} ${handlePosition()} border border-1 h-full`}
         >
             {props.children}
-            <div
-                className={`flex flex-col bg-gray-200 items-left ${handlePadding()}`}
-            >
-                <Typography>{props.name}</Typography>
-                <Typography>{props.email}</Typography>
-                <Typography>{props.phone}</Typography>
-                <Typography>{props.website}</Typography>
-            </div>
         </div>
     )
 }
