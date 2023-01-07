@@ -14,39 +14,47 @@ export default function Button(props: React.PropsWithChildren<IProps>) {
             props.onclick(ev)
         }
     }
+    const handleBorder = () => {
+        switch (props.border) {
+            case 'left':
+                return 'border border-l-2'
+            case 'right':
+                return 'border-r-2'
+            case 'top':
+                return 'border-t-2'
+            case 'bottom':
+                return 'border-b-2'
+            default:
+                return 'border-none'
+        }
+    }
+    const handlePosition = () => {
+        switch (props.position) {
+            case 'centered':
+                return 'items-center'
+            case 'left':
+                return 'items-start'
+            case 'right':
+                return 'items-end'
+            default:
+                return 'items-center'
+        }
+    }
     const handleColor = () => {
         switch (props.color) {
             case 'primary':
                 return 'bg-gray-800 border-gray-800 dark:bg-gray-light-default-button'
             case 'secondary':
                 return 'bg-green-800 border-green-800 dark:bg-green-light-button'
-            case 'danger':
-                return 'bg-red-800 border-red-800 dark:bg-red-500'
-            case 'warning':
-                return 'bg-orange-800 border-orange-800 dark:bg-orange-light-default-button'
-            case 'gray':
-                return 'bg-gray-mid-dark border-gray-mid-dark dark:bg-gray-light-default-button'
-            case 'light-blue':
-                return 'bg-blue-light-sea border-blue-light-sea dark:border-white'
-            case 'dark-blue':
-                return 'bg-blue-dark border-blue-dark dark:bg-blue-850'
-            case 'blue':
-                return 'bg-blue-800 border-blue-800 dark:bg-blue-light-button'
-            case 'yellow-mustard':
-                return 'bg-yellow-mustard border-yellow-mustard dark:border-white'
-            case 'pink-light':
-                return 'bg-pink-light border-pink-light dark:border-white'
-            case 'green-grass':
-                return 'bg-green-grass border-green-grass dark:border-white'
-
             default:
-                return 'bg-gray-50 border-gray-50 dark:bg-gray-light-default-button'
+                return ''
         }
     }
+    console.error('render??')
     return (
         <button
             type={props.type || 'button'}
-            className={`${handleCursor()} ${handleColor()} focus:outline-none w-4/4 justify-center items-center justify-items-center ${
+            className={`${handleCursor()} ${handleColor()} ${handleBorder()} ${handlePosition()} w-1/3 flex flex-col focus:outline-none  ${
                 props.disabled === true && 'opacity-50 disabled'
             } }`}
             onClick={(ev) => handleClick(ev)}
