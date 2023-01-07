@@ -23,6 +23,7 @@
         "src/**/*",
         "tailwind.config.js",
         "font.ts",
-        "declarations.d.ts"
+        "declarations.d.ts",
+        "./jest-setup.ts"
     ]
 }

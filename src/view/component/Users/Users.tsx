@@ -1,6 +1,6 @@
 import React from 'react'
 import useHandleStatusError from '../../hook/useHttpError'
-import useFetchUsers from '../../hook/useHandleStatusError'
+import useFetchUsers from '../../hook/useFetchUsers/useFetchUsers'
 import Card from '../../component/Card/Card'
 import TextStack from '../TextStack/TextStack'
 import Image from '../../component/Image/Image'

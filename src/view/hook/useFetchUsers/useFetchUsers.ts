@@ -4,12 +4,12 @@ import axios, { AxiosResponse, AxiosError } from 'axios'
 type FetchData<T> = {
     data: T | undefined
     loading: boolean
-    error: AxiosError | undefined
+    error: AxiosError | null
 }
 export default function useFetchUsers<T>(query: string): FetchData<T> {
     const [data, setData] = useState<T | undefined>()
     const [loading, setLoading] = useState<boolean>(false)
-    const [error, setError] = useState<AxiosError>()
+    const [error, setError] = useState<AxiosError | null>(null)
     const cancel = useRef(false)
 
     useEffect(() => {
