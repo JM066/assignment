@@ -2,7 +2,7 @@ import React from 'react'
 import useHandleStatusError from '../../hook/useHttpError'
 import useFetchUsers from '../../hook/useHandleStatusError'
 import Card from '../../component/Card/Card'
-import Text from '../../component/Text/Text'
+import TextStack from '../TextStack/TextStack'
 import Image from '../../component/Image/Image'
 import Heart from '../Heart/Heart'
 import Button from '../Button/Button'
@@ -16,14 +16,14 @@ export default function Users() {
     if (unexpectedError) return <div>{unexpectedError}</div>
     if (loading) return <div>Loading...</div>
     return (
-        <div className="h-full grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="h-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {data?.map((user: IUsers) => (
                 <Card rounded="sm" items="center" key={user.id}>
                     <Image
                         color="primary"
                         url={`https://avatars.dicebear.com/v2/avataaars/${user.name}.svg?options%5Bmood%5D%5B%5D=happy`}
                     />
-                    <Text
+                    <TextStack
                         name={user.name}
                         email={user.email}
                         phone={user.phone}

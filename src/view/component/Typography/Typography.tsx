@@ -14,13 +14,28 @@ export default function Typography(props: React.PropsWithChildren<IProps>) {
                 return 'text-base'
         }
     }
-    const handleWidth = () => {
+    const handleFontWidth = () => {
         if (props.bold) return 'font-bold'
         else return 'font-normal'
     }
+    const handleColor = () => {
+        switch (props.color) {
+            case 'primary':
+                return 'text-gray-600'
+            case 'secondary':
+                return 'text-gray-700'
+            default:
+                return ''
+        }
+    }
     return (
-        <Text className={`${handleWidth()} ${handleSize()} break-words`}>
-            {props.children}
-        </Text>
+        <div className="flex flex-row items-start">
+            <div className={`${props.icon && 'mr-2 mt-1'} `}>{props.icon}</div>
+            <Text
+                className={`${handleFontWidth()} ${handleSize()} ${handleColor()} break-words`}
+            >
+                {props.children}
+            </Text>
+        </div>
     )
 }
