@@ -1,5 +1,4 @@
 import React from 'react'
-import Typography from '../Typography/Typography'
 import { IProps } from './Button.type'
 
 export default function Button(props: React.PropsWithChildren<IProps>) {
@@ -43,14 +42,14 @@ export default function Button(props: React.PropsWithChildren<IProps>) {
     const handleColor = () => {
         switch (props.color) {
             case 'primary':
-                return 'bg-gray-800 border-gray-800 dark:bg-gray-light-default-button'
+                return 'bg-blue-200'
             case 'secondary':
-                return 'bg-green-800 border-green-800 dark:bg-green-light-button'
+                return 'bg-blue-300'
             default:
                 return ''
         }
     }
-    console.error('render??')
+
     return (
         <button
             type={props.type || 'button'}
@@ -59,7 +58,7 @@ export default function Button(props: React.PropsWithChildren<IProps>) {
             } }`}
             onClick={(ev) => handleClick(ev)}
         >
-            <Typography>{props.children}</Typography>
+            {props.children}
         </button>
     )
 }

@@ -30,7 +30,7 @@ export default function Card(props: React.PropsWithChildren<IProps>) {
 
     return (
         <div
-            className={`flex flex-col ${handleRounded()} ${handlePosition()} border border-1 h-full`}
+            className={`flex flex-col border border-1 overflow-hidden ${handleRounded()} ${handlePosition()}`}
         >
             {props.children}
         </div>
