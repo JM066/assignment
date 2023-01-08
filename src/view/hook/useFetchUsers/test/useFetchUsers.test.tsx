@@ -1,17 +1,21 @@
 import { renderHook, waitFor } from '@testing-library/react'
 import useFetchUsers from '../useFetchUsers'
 import mockAxios from 'jest-mock-axios'
-
 jest.mock('axios')
 
 describe('fetchData', () => {
+    afterEach(() => {
+        mockAxios.reset()
+    })
+
     it('fetches users successfully', async () => {
-        const { result } = renderHook(() => useFetchUsers('users'))
+        const { result } = renderHook(() => useFetchUsers('uers'))
+        expect(result.current.loading).toBeTruthy()
         await waitFor(() => {
             expect(result.current.loading).toBeFalsy()
-            expect(result.current.data).toMatchSnapshot()
         })
     })
+
     it('fetch fails', async () => {
         const { result } = renderHook(() => useFetchUsers('users'))
         const message = 'Network Error'

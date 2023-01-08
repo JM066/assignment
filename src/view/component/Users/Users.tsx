@@ -1,5 +1,5 @@
 import React from 'react'
-import useHandleStatusError from '../../hook/useHttpError'
+import { useNavigate } from 'react-router-dom'
 import useFetchUsers from '../../hook/useFetchUsers/useFetchUsers'
 import Card from '../../component/Card/Card'
 import TextStack from '../TextStack/TextStack'
@@ -11,10 +11,24 @@ import { BsPencil, BsTrash } from 'react-icons/bs'
 
 export default function Users() {
     const { data, error, loading } = useFetchUsers<IUsers[]>('users')
-    const unexpectedError = useHandleStatusError(error)
-
-    if (unexpectedError) return <div>{unexpectedError}</div>
+    const status = error?.response?.status
+    const navigate = useNavigate()
+    const hanldeRoute = (status: number) => {
+        if (status) {
+            switch (status) {
+                case 404:
+                    navigate('/not-found')
+                    break
+                case 403:
+                    navigate('/forbidden')
+                    break
+                default:
+                    navigate('/')
+            }
+        }
+    }
     if (loading) return <div>Loading...</div>
+    if (status) return hanldeRoute(status)
     return (
         <div className="h-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {data?.map((user: IUsers) => (

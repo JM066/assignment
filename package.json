@@ -22,7 +22,6 @@
     "devDependencies": {
         "@parcel/transformer-svg-react": "^2.8.2",
         "@parcel/transformer-typescript-tsc": "^2.8.2",
-        "@testing-library/react-hooks": "^8.0.1",
         "@types/jest": "^29.2.5",
         "@types/node": "^18.11.18",
         "@types/react": "^18.0.26",
