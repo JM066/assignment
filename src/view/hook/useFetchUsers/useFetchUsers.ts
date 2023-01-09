@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
-import axios, { AxiosResponse, AxiosError } from 'axios'
+import axios from 'axios'
+import { AxiosResponse, AxiosError } from 'axios'
 
 type FetchData<T> = {
     data: T | undefined
@@ -18,7 +19,7 @@ export default function useFetchUsers<T>(query: string): FetchData<T> {
         setLoading(true)
         try {
             const data: AxiosResponse = await axios.get(
-                `${process.env.REACT_APP_BASE_URL}/${query}`
+                `https://jsonplaceholder.typicode.com/${query}`
             )
             setData(data?.data)
         } catch (err) {
