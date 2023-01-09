@@ -28,7 +28,7 @@ export default function Users() {
         }
     }
     if (loading) return <div>Loading...</div>
-    if (status) return hanldeRoute(status)
+    if (status) hanldeRoute(status)
     return (
         <div className="h-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {data?.map((user: IUsers) => (

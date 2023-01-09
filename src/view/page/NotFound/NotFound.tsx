@@ -7,7 +7,11 @@ export default function NotFound() {
     return (
         <div>
             <div>Page Not PageNotFound</div>
-            <Button color="secondary" onclick={() => navigate('/')}>
+            <Button
+                position="centered"
+                color="secondary"
+                onclick={() => navigate('/')}
+            >
                 Take Me Home
             </Button>
         </div>

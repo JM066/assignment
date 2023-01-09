@@ -5,7 +5,6 @@ jest.mock('axios')
 
 describe('fetch users', () => {
     it('Start fetch users', async () => {
-        // const mockFetch = jest.fn(() => Promise.resolve({ data: {} }))
         const mockFetch = jest.fn()
         mockFetch('https://jsonplaceholder.typicode.com/users')
 
